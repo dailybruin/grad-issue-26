@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import Scrollytelling from "./components/Landing";
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -12,9 +13,10 @@ function App() {
 		.then(res => setData(res.data['article.aml']))
   }, [])
 
-  return data && (
+  return (
     <div className="App">
       <Header/>
+      <Scrollytelling/>
       Hello Daily Bruin!
       <Footer/>
     </div>
@@ -22,3 +24,8 @@ function App() {
 }
 
 export default App;
+
+/*This is the correct code for deployment 
+Make sure to change the API URL
+Then add this to the return statement:
+return data && ( code );*/
