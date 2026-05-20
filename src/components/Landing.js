@@ -92,6 +92,9 @@ export default function Scrollytelling() {
                 key={b.id}
                 className={`building-bg ${i === activeIndex ? "active" : ""}`}
                 >
+                  {activeIndex === 0 && (
+                  <div className="intro-overlay" />
+                  )}
                 <img src={b.buildingImg} alt={b.name} />
             </div>
             ))}    
@@ -126,7 +129,8 @@ export default function Scrollytelling() {
         />
       </div>
 
-      {/* ── REST OF STORY CONTINUES BELOW ── */}
+      {/* ── REST OF STORY CONTINUES BELOW ── 
+        MOVE SOTRY CHUNKS TO DIFF FILES */}
       <section className="story-body">
         <p>Story content continues here...</p>
       </section>

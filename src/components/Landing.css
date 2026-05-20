@@ -87,6 +87,14 @@
   transition: opacity 0.8s ease;
 }
 
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .building-bg.active {
   opacity: 1;
 }
@@ -103,6 +111,7 @@
   position: absolute;
   top: 50%;
   right: 3rem;
+  z-index: 2;
 
   width: 380px;
   background: rgba(26, 26, 26, 0.82);
@@ -165,7 +174,7 @@
   right: auto;
   bottom: auto;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, calc(-50% + 40px));
   text-align: center;
 
   width: min(600px, 90vw);
