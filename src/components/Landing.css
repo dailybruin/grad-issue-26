@@ -65,7 +65,7 @@
 /* ── SCROLL CONTAINER ── */
 .scroll-container {
   position: relative;
-  height: 500vh;
+  height: 600vh;
   background: var(--color-bg);
 }
 
@@ -76,6 +76,7 @@
   height: 100vh;
   overflow: hidden;
   background: var(--color-white);
+  z-index: 10;
 }
 
 /* full bleed background per building */
@@ -100,25 +101,25 @@
 /* blurb sits bottom-right over the image */
 .blurb-card {
   position: absolute;
-  bottom: 3rem;
+  top: 50%;
   right: 3rem;
+
   width: 380px;
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.82);
   padding: 2.5rem;
   border-radius: 2px;
 
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(-50%) translateY(40px);
+
   transition:
     opacity 0.6s ease,
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
 }
 
 .blurb-card.active {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* mobile — blurb goes bottom full width */
@@ -145,6 +146,8 @@
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 1rem;
+  max-width: 100%;
+  text-align: center;
   line-height: 1.1;
 }
 
@@ -153,7 +156,22 @@
   line-height: 1.75;
   color: rgba(248, 246, 246, 0.75);
   margin: 0;
-  max-width: 38ch;
+  max-width: 100%;
+  text-align: justify;
+}
+.blurb-card.center {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  width: min(600px, 90vw);
+}
+.blurb-card.center.active {
+  transform: translate(-50%, -50%);
 }
 
 /* ── INVISIBLE SCROLL SPACERS ── */
@@ -161,6 +179,7 @@
   height: 100vh;
   width: 100%;
   pointer-events: none;
+  display: block;
 }
 
 /* ── STORY BODY ── */
@@ -191,5 +210,6 @@
 
   .blurb-text {
     max-width: 100%;
+    text-align: justify;
   }
 }

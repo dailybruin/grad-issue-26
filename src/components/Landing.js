@@ -7,28 +7,34 @@ import powellImg from "../images/Desktop/powelldesktop.png";
 import medicalImg from "../images/Desktop/medicalbuildingdesktop.png";
 
 const buildings = [
+   {
+    id: 0,
+    name: "",
+    blurb: "In comparison with other universities across the nation, UCLA stands on its own architecturally, boasting global movements and influences ranging from Gothic to Mediterranean, Classical to Modern. But behind these remains UCLA’s core, Romanesque heart. What stories can be told in comparing campus’ original architectural purpose with its modern direction?",
+    buildingImg: hero,
+   }, 
   {
     id: 1,
     name: "Royce Hall",
-    blurb: "Built in 1929, Royce Hall was one of the first four buildings on UCLA's Westwood campus, modeled after the Basilica of Sant'Ambrogio in Milan.",
+    blurb: "Royce Hall was built in the Lombard Romanesque-style architecture dating back to 10th-century Europe – a choice made in response to the contemporary 20th-century Gothic revival.",
     buildingImg: royceImg,
   },
   {
     id: 2,
-    name: "Kerckhoff Hall",
-    blurb: "Completed in 1931, Kerckhoff Hall has served as the heart of student life at UCLA for nearly a century.",
-    buildingImg: kerckhoffImg,
-  },
-  {
-    id: 3,
     name: "Powell Library",
-    blurb: "Powell Library opened in 1929 as UCLA's first library, its rotunda dome becoming one of the most iconic silhouettes on campus.",
+    blurb: "Just like Royce Hall, Powell Library was inspired by Milan’s Basilica of Sant’Ambrogio. The pair’s arrangement in Dickson Plaza is even reminiscent of monastic traditions.",
     buildingImg: powellImg,
   },
   {
+    id: 3,
+    name: "Kerckhoff Hall",
+    blurb: "In 1931, Kerckhoff Hall’s Gothic revival style was chosen to evoke a castlelike atmosphere for students, while honoring its founder with equally-Gothic stained glass elements",
+    buildingImg: kerckhoffImg,
+  },
+  {
     id: 4,
-    name: "Medical Building",
-    blurb: "Haines Hall, part of the original 1929 campus construction, reflects the Romanesque Revival architecture that defines UCLA's historic core.",
+    name: "David Geffen School of Medicine",
+    blurb: "Before its 1971 completion, the David Geffen School of Medicine had already been hailed in 1951 as the first modern medical center of the atomic age.",
     buildingImg: medicalImg,
   },
 ];
@@ -43,6 +49,7 @@ export default function Scrollytelling() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const i = Number(entry.target.dataset.index);
+
             setActiveIndex(i);
           }
         });
@@ -93,9 +100,8 @@ export default function Scrollytelling() {
                 {buildings.map((b, i) => (
                 <div
                     key={b.id}
-                    className={`blurb-card ${i === activeIndex ? "active" : ""}`}
+                    className={`blurb-card ${i === activeIndex ? "active" : ""} ${i === 0 ? "center" : ""}`}
                 >
-                <span className="blurb-number">0{b.id}</span>
                 <h2 className="blurb-title">{b.name}</h2>
                 <p className="blurb-text">{b.blurb}</p>
                 </div>
@@ -113,7 +119,11 @@ export default function Scrollytelling() {
           />
         ))}
 
-        <div className="scroll-step" aria-hidden="true" />
+        <div
+            className="scroll-step"
+            data-index={buildings.length}
+            aria-hidden="true"
+        />
       </div>
 
       {/* ── REST OF STORY CONTINUES BELOW ── */}
