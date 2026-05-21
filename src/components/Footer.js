@@ -50,7 +50,7 @@ const Footer = () => {
           <a href="https://www.twitter.com/dailybruin" target="_blank" rel="noreferrer"><img src={twitter} alt=""/></a>
           <a href="https://www.tiktok.com/@dailybruin" target="_blank" rel="noreferrer"><img src={tiktok} alt=""/></a>
           <a href="http://eepurl.com/cFEiZX" target="_blank" rel="noreferrer"><img src={email} alt=""/></a>
-          <p>Built with Suzy’s ♥ in Kerckhoff 118 by [developers]. Designed by [designers].</p>
+          <p>Built with Suzy’s ♥ in Kerckhoff 118 by Shayla Kumaresan & Nidhi Pamnani. Designed by [designers].</p>
         </Socials>
     </Container>
     )

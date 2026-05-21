@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
 /* ── VARIABLES — swap these when color palette is finalized ── */
 :root {
   --color-bg: #F5E9D0;
@@ -41,13 +42,27 @@
   margin: 0 0 1rem;
 }
 
+.hero-title,
+.hero-byline {
+  margin: 0;
+  max-width: 500px;
+  text-align: left;
+}
+
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.1;
-  margin: 0 0 1.5rem;
-  max-width: 700px;
+  margin-bottom:1rem;
+}
+
+.hero-byline {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 100;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom:1.5rem;
 }
 
 .hero-sub {
@@ -151,6 +166,7 @@
 }
 
 .blurb-title {
+  font-family: 'Karma', serif;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: var(--color-white);
@@ -158,16 +174,21 @@
   max-width: 100%;
   text-align: center;
   line-height: 1.1;
+  letter-spacing: normal;
 }
 
 .blurb-text {
+  font-family: 'Karma', serif;
   font-size: 1rem;
   line-height: 1.75;
+  letter-spacing: normal; 
+  word-spacing: normal;   
   color: rgba(248, 246, 246, 0.75);
   margin: 0;
   max-width: 100%;
-  text-align: justify;
+  text-align: left;
 }
+
 .blurb-card.center {
   top: 50%;
   left: 50%;
@@ -195,7 +216,7 @@
 .story-body {
   padding: 6rem 4rem;
   background: var(--color-bg);
-  max-width: 700px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 

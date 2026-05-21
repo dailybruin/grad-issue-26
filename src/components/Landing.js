@@ -1,43 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Landing.css";
 import hero from "../images/Desktop/hero-desktop.png";
-import royceImg from "../images/Desktop/roycedesktop.png";
-import kerckhoffImg from "../images/Desktop/kerchoffdesktop.png";
-import powellImg from "../images/Desktop/powelldesktop.png";
-import medicalImg from "../images/Desktop/medicalbuildingdesktop.png";
-
-/*const buildings = [
-   {
-    id: 0,
-    name: "",
-    blurb: "In comparison with other universities across the nation, UCLA stands on its own architecturally, boasting global movements and influences ranging from Gothic to Mediterranean, Classical to Modern. But behind these remains UCLA’s core, Romanesque heart. What stories can be told in comparing campus’ original architectural purpose with its modern direction?",
-    buildingImg: hero,
-   }, 
-  {
-    id: 1,
-    name: "Royce Hall",
-    blurb: "Royce Hall was built in the Lombard Romanesque-style architecture dating back to 10th-century Europe – a choice made in response to the contemporary 20th-century Gothic revival.",
-    buildingImg: royceImg,
-  },
-  {
-    id: 2,
-    name: "Powell Library",
-    blurb: "Just like Royce Hall, Powell Library was inspired by Milan’s Basilica of Sant’Ambrogio. The pair’s arrangement in Dickson Plaza is even reminiscent of monastic traditions.",
-    buildingImg: powellImg,
-  },
-  {
-    id: 3,
-    name: "Kerckhoff Hall",
-    blurb: "In 1931, Kerckhoff Hall’s Gothic revival style was chosen to evoke a castlelike atmosphere for students, while honoring its founder with equally-Gothic stained glass elements",
-    buildingImg: kerckhoffImg,
-  },
-  {
-    id: 4,
-    name: "David Geffen School of Medicine",
-    blurb: "Before its 1971 completion, the David Geffen School of Medicine had already been hailed in 1951 as the first modern medical center of the atomic age.",
-    buildingImg: medicalImg,
-  },
-];*/
+import StoryBody from "./StoryBody";
 
 export default function Scrollytelling() {
   const [amlData, setAmlData] = useState(null);
@@ -149,9 +113,7 @@ export default function Scrollytelling() {
 
       {/* ── REST OF STORY CONTINUES BELOW ── 
         MOVE SOTRY CHUNKS TO DIFF FILES */}
-      <section className="story-body">
-        <p>Story content continues here...</p>
-      </section>
+      <StoryBody amlData={amlData} />
 
     </div>
   );
