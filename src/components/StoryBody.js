@@ -3,6 +3,8 @@ import "./StoryBody.css";
 // Temporary hardcoded video
 const DUMMY_VIDEO =
   "https://www.youtube.com/embed/w6uX9jamcwQ";
+
+  
 export default function StoryBody({ amlData }) {
   if (!amlData?.article_sections) return null;
 

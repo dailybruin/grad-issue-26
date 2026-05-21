@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Scrollytelling from "./components/Landing";
+import StoryBody from "./components/StoryBody";
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -13,10 +14,13 @@ function App() {
 		.then(res => setData(res.data['article.aml']))
   }, [])
 
+  if (!data) return <div>Loading...</div>;
+
   return data && (
     <div className="App">
       <Header/>
-      <Scrollytelling/>
+      <Scrollytelling amlData={data}/>
+      <StoryBody amlData={data}/>
       <Footer/>
     </div>
   );

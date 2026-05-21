@@ -1,20 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import "./Landing.css";
-import hero from "../images/Desktop/hero-desktop.png";
 import StoryBody from "./StoryBody";
 
-export default function Scrollytelling() {
-  const [amlData, setAmlData] = useState(null);
+export default function Scrollytelling({amlData}) {
   const [activeIndex, setActiveIndex] = useState(0); // -1 = hero visible
   const stepsRef = useRef([]);
   
-  useEffect(() => {
-    fetch("https://oink.dailybruin.com/api/packages/prime/grad-issue-26")
-      .then((res) => res.json())
-      .then((data) => {
-        setAmlData(data.data["article.aml"]);
-      });
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,11 +25,7 @@ export default function Scrollytelling() {
     steps.forEach((step) => observer.observe(step));
 
     return () => observer.disconnect();
-  }, [amlData]);
-
-  if (!amlData) {
-    return <div>Loading...</div>;
-  }
+  }, []);
 
   const buildings = amlData.Scroll_sequence.map((item) => item.value);
 
@@ -112,9 +99,7 @@ export default function Scrollytelling() {
       </div>
 
       {/* ── REST OF STORY CONTINUES BELOW ── 
-        MOVE SOTRY CHUNKS TO DIFF FILES */}
-      <StoryBody amlData={amlData} />
-
+        MOVE STORY CHUNKS TO DIFF FILES */}
     </div>
   );
 }
