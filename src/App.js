@@ -8,16 +8,15 @@ function App() {
   const [ data, setData ] = useState(null);
   
   useEffect(() => {
-		fetch("<TODO: insert api url here>")
+		fetch("https://oink.dailybruin.com/api/packages/prime/grad-issue-26")
 		.then(res => res.json())
 		.then(res => setData(res.data['article.aml']))
   }, [])
 
-  return (
+  return data && (
     <div className="App">
       <Header/>
       <Scrollytelling/>
-      Hello Daily Bruin!
       <Footer/>
     </div>
   );

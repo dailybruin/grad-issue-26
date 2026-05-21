@@ -6,7 +6,7 @@ import kerckhoffImg from "../images/Desktop/kerchoffdesktop.png";
 import powellImg from "../images/Desktop/powelldesktop.png";
 import medicalImg from "../images/Desktop/medicalbuildingdesktop.png";
 
-const buildings = [
+/*const buildings = [
    {
     id: 0,
     name: "",
@@ -37,12 +37,21 @@ const buildings = [
     blurb: "Before its 1971 completion, the David Geffen School of Medicine had already been hailed in 1951 as the first modern medical center of the atomic age.",
     buildingImg: medicalImg,
   },
-];
+];*/
 
 export default function Scrollytelling() {
-  const [activeIndex, setActiveIndex] = useState(-1); // -1 = hero visible
+  const [amlData, setAmlData] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0); // -1 = hero visible
   const stepsRef = useRef([]);
   
+  useEffect(() => {
+    fetch("https://oink.dailybruin.com/api/packages/prime/grad-issue-26")
+      .then((res) => res.json())
+      .then((data) => {
+        setAmlData(data.data["article.aml"]);
+      });
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,9 +70,15 @@ export default function Scrollytelling() {
     steps.forEach((step) => observer.observe(step));
 
     return () => observer.disconnect();
-  }, []);
+  }, [amlData]);
 
-  const activeBuilding = buildings[activeIndex];
+  if (!amlData) {
+    return <div>Loading...</div>;
+  }
+
+  const buildings = amlData.Scroll_sequence.map((item) => item.value);
+
+  const activeBuilding = activeIndex >= 0 ? buildings[activeIndex] : null;
 
   return (
     <div className="scrollytelling">
@@ -71,12 +86,15 @@ export default function Scrollytelling() {
       {/* ── HERO ── */}
       <section className="hero">
         <img
-          src={hero}
-          alt="UCLA campus aerial view"
+          src={amlData.background_image}
+          alt={amlData.background_image_alt}
           className="hero-img"
         />
         <div className="hero-overlay">
-          <h1 className="hero-title">UCLA History, Brick by Brick</h1>
+          <h1 className="hero-title">{amlData.headline}</h1>
+          <p className="hero-byline">
+            {amlData.byline}
+          </p>
         </div>
       </section>
 
@@ -89,23 +107,23 @@ export default function Scrollytelling() {
            {/* full background images — all stacked, active one shows */}
             {buildings.map((b, i) => (
                 <div
-                key={b.id}
+                key={i}
                 className={`building-bg ${i === activeIndex ? "active" : ""}`}
                 >
                   {activeIndex === 0 && (
                   <div className="intro-overlay" />
                   )}
-                <img src={b.buildingImg} alt={b.name} />
+                <img src={b.image || b.image_desktop} alt={b.image_alt} />
             </div>
             ))}    
 
             {/* blurb overlaid on top right */}
                 {buildings.map((b, i) => (
                 <div
-                    key={b.id}
+                    key={i}
                     className={`blurb-card ${i === activeIndex ? "active" : ""} ${i === 0 ? "center" : ""}`}
                 >
-                <h2 className="blurb-title">{b.name}</h2>
+                <h2 className="blurb-title">{b.title}</h2>
                 <p className="blurb-text">{b.blurb}</p>
                 </div>
             ))}
@@ -115,7 +133,7 @@ export default function Scrollytelling() {
         {/* invisible scroll spacers — one per building */}
         {buildings.map((b, i) => (
           <div
-            key={b.id}
+            key={i}
             className="scroll-step"
             data-index={i}
             aria-hidden="true"
