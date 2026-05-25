@@ -47,7 +47,7 @@ export default function StoryBody({ amlData }) {
   return (
     <section className="story-body">
       {chunks.map((chunk, idx) => (
-        <article key={idx} className="story-section">
+        <article key={idx} className="story-section" id = {chunk.title.toLowerCase().replace(/\s+/g, '-')}> {/* Add id based on title */}
           {/* TITLE */}
           <h2 className="section-title">{chunk.title}</h2>
 

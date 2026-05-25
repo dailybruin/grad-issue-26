@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-
 import DBLogo from '../images/DailyBruinLogo.svg'
+import Navbar from '../components/Navbar';
 
 const DBHeader = styled("div")`
   z-index: 2001;
@@ -10,7 +10,7 @@ const DBHeader = styled("div")`
   top: 0;
   background: black;
   width: 100%;
-  padding: 0.2em 0;
+  padding-top: 0.2em;
   color: white;
   font-family: 'ITC Century';
   font-style: normal;
@@ -24,11 +24,12 @@ const DBHeader = styled("div")`
 
 const Header = () => {
   return (
-    <DBHeader>
+    <DBHeader id = "header">
       {/* Daily Bruin */}
       <a href="https://dailybruin.com">
         <img src={DBLogo} alt="Daily Bruin" />
       </a>
+      <Navbar />
     </DBHeader>
   )
 }

@@ -37,7 +37,7 @@ export default function Scrollytelling({amlData}) {
     <div className="scrollytelling">
 
       {/* ── HERO ── */}
-      <section className="hero">
+      <section className="hero" id = "title">
         <img
           src={amlData.background_image}
           alt={amlData.background_image_alt}
