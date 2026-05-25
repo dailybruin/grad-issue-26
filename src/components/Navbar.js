@@ -50,8 +50,10 @@ export default function Navbar() {
                     window.scrollTo({ top: targetY, behavior: "smooth" });
                 });
             } else {
-                // For navigating to title, jump to right before hero section so the scroll feels natural
-                window.scrollTo({ top: window.innerHeight, behavior: "instant" });
+                // Don't do jump to second screen if we're already on title card
+                if (window.scrollY > window.innerHeight) {
+                    window.scrollTo({ top: window.innerHeight, behavior: "instant" });
+                }
                 requestAnimationFrame(() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                 });
