@@ -80,7 +80,6 @@
 /* ── SCROLL CONTAINER ── */
 .scroll-container {
   position: relative;
-  height: 600vh;
   background: var(--color-bg);
 }
 
@@ -206,7 +205,7 @@
 
 /* ── INVISIBLE SCROLL SPACERS ── */
 .scroll-step {
-  height: 100vh;
+  height: 160vh;
   width: 100%;
   pointer-events: none;
   display: block;

@@ -18,7 +18,9 @@ export default function Scrollytelling({amlData}) {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0,
+        rootMargin: "-40% 0px -59% 0px"
+       }
     );
 
     const steps = document.querySelectorAll(".scroll-step");
@@ -85,17 +87,12 @@ export default function Scrollytelling({amlData}) {
         {buildings.map((b, i) => (
           <div
             key={i}
-            className="scroll-step"
+            className={`scroll-step`}
             data-index={i}
             aria-hidden="true"
           />
         ))}
 
-        <div
-            className="scroll-step"
-            data-index={buildings.length}
-            aria-hidden="true"
-        />
       </div>
 
       {/* ── REST OF STORY CONTINUES BELOW ── 
