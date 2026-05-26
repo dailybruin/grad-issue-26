@@ -4,6 +4,7 @@ import Scrollytelling from "./components/Landing";
 import StoryBody from "./components/StoryBody";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Credits from "./components/Credits";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -21,6 +22,7 @@ function App() {
       <Header/>
       <Scrollytelling amlData={data}/>
       <StoryBody amlData={data}/>
+      <Credits amlData={data}/>
       <Footer/>
     </div>
   );

@@ -47,17 +47,17 @@
 .hero-title,
 .hero-byline {
   margin: 0;
-  max-width: 500px;
-  text-align: left;
   font-family: 'Cal Sans', sans-serif;
 }
 
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
+  font-weight: 750;
   color: var(--color-white);
   line-height: 1.1;
   margin-bottom:1rem;
+  text-align: center;
+  justify-self: center;
 }
 
 .hero-byline {

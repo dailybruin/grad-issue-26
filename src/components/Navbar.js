@@ -5,8 +5,8 @@ const NAV_LINKS = [
     {label: "Title", id: "title"},
     {label: "Royce", id: "royce-hall"},
     {label: "Powell", id: "powell-library"},
-    {label: "Geffen", id: "david-geffen-school-of-medicine"},
     {label: "Kerckhoff", id: "kerckhoff-hall"},
+    {label: "Geffen", id: "david-geffen-school-of-medicine"},,
 ];
 
 export default function Navbar() {
