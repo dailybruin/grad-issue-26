@@ -39,7 +39,7 @@ export default function TeamCredits({ amlData }) {
   const credits = amlData.credits;
 
   return (
-    <section className="team-credits">
+    <section id = "about" className="team-credits">
       {credits.map((item, idx) => {
         const groupKey = item.type;
         const label = GROUP_LABELS[groupKey] || groupKey;

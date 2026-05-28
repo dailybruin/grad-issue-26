@@ -6,7 +6,8 @@ const NAV_LINKS = [
     {label: "Royce", id: "royce-hall"},
     {label: "Powell", id: "powell-library"},
     {label: "Kerckhoff", id: "kerckhoff-hall"},
-    {label: "Geffen", id: "david-geffen-school-of-medicine"},,
+    {label: "Geffen", id: "david-geffen-school-of-medicine"},
+    {label: "About",id: "about"},
 ];
 
 export default function Navbar() {
@@ -37,6 +38,7 @@ export default function Navbar() {
             const containerBottom = scrollContainer.getBoundingClientRect().bottom + currentScrollY;
             const userIsInsideContainer = currentScrollY >= containerTop && currentScrollY <= containerBottom;
             const targetIsInStoryBody = !!el.closest(".story-body, .story-section");
+            const targetIsTitleCard = id === "title";
             const targetY = el.getBoundingClientRect().top + currentScrollY - offset;
 
            if (targetIsInStoryBody) {
@@ -49,13 +51,17 @@ export default function Navbar() {
                 requestAnimationFrame(() => {
                     window.scrollTo({ top: targetY, behavior: "smooth" });
                 });
-            } else {
+            } else if (targetIsTitleCard){
                 // Don't do jump to second screen if we're already on title card
                 if (window.scrollY > window.innerHeight) {
                     window.scrollTo({ top: window.innerHeight, behavior: "instant" });
                 }
                 requestAnimationFrame(() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            } else {
+                requestAnimationFrame(() => {
+                    window.scrollTo({ top: targetY, behavior: "smooth" });
                 });
             }
         }
