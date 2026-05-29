@@ -100,10 +100,6 @@ export default function Scrollytelling({ amlData }) {
           <div key={i} className="scroll-step" data-index={i} aria-hidden="true" />
         ))}
       </div>
-
-      {/* ── SECTION 3: REST OF ARTICLE ── */}
-      <StoryBody amlData={amlData} />
-
     </div>
   );
 }
