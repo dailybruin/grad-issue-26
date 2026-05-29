@@ -106,7 +106,7 @@
 
 /* title + byline */
 .hero-text {
-  position: fixed;
+  position: absolute;
   bottom: 0rem;
   left: 2.5rem;
   z-index: 2;
