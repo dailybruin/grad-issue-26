@@ -122,8 +122,6 @@ export default function Scrollytelling({ amlData }) {
           />
         ))}
       </div>
-
-      <StoryBody amlData={amlData} />
     </div>
   );
 }
