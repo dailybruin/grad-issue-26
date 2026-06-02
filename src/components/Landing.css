@@ -25,20 +25,21 @@
   overflow: hidden;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 0;
-}
-
 .hero-overlay-dim {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 1;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 /* title + byline */
@@ -49,6 +50,7 @@
   z-index: 2;
   opacity: 1;
   transition: opacity 0.6s ease;
+  text-align:left;
 }
 
 .hero-text.hidden {
@@ -68,7 +70,7 @@
   color: var(--color-white);
   line-height: 1.1;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
   justify-self: center;
 }
 
@@ -78,6 +80,7 @@
   color: var(--color-white);
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 /* hero scroll spacers */
@@ -208,19 +211,11 @@
 /* ── MOBILE ── */
 @media (max-width: 768px) {
 
-  .hero-bg {
-    background-attachment: scroll;
-    position: absolute;
-    top: -30px;
-    bottom: -30px;
-    left: 0;
-    right: 0;
-    background-size: cover;
-    background-position: center top;
-  }
-
-  .hero-sticky {
-    height: 100dvh;
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; 
   }
 
   .sticky-scene {
@@ -229,7 +224,7 @@
 
   .hero-text {
     left: 1.5rem;
-    bottom: 1rem;
+    bottom: 5rem; 
   }
 
   .hero-title {
@@ -241,18 +236,19 @@
   .hero-byline {
     font-size: clamp(0.85rem, 3vw, 1rem);
     font-family: 'Cal Sans', sans-serif;
+    margin-bottom: 1rem; 
   }
 
   .building-bg img {
-    object-position: center top;
+    object-position: center center; 
   }
 
   .blurb-card {
     top: auto;
     right: auto;
-    bottom: 2rem;
+    bottom: 4.5rem; 
     left: 50%;
-    width: 85vw;
+    width: 90vw;
     padding: 1.25rem;
     transform: translateX(-50%) translateY(20px);
   }
@@ -263,16 +259,17 @@
   }
 
   .blurb-card.center {
-    top: auto;
-    bottom: 2rem;
+    top: 50%;                 
+    bottom: auto;           
     left: 50%;
     right: auto;
-    width: 85vw;
-    transform: translateX(-50%) translateY(20px);
+    width: 90vw;
+    transform: translate(-50%, calc(-50% + 20px)); 
   }
 
   .blurb-card.center.active {
-    transform: translateX(-50%) translateY(0);
+    transform: translate(-50%, -50%);
+    opacity: 1;
   }
 
   .blurb-title {
