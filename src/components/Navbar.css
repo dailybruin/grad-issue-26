@@ -1,7 +1,8 @@
 @import url('https://api.fontshare.com/v2/css?f[]=cal-sans@400&display=swap');
 
+/* DESKTOP DEFAULT */
 .navbar {
-  position: static;
+  position: sticky;
   top: 40px;
   z-index: 200;
   background: #a0a0a0;
@@ -29,15 +30,18 @@
   justify-content: center;
   width: 100%;
   padding: 0.9rem 1rem;
-  font-family: 'Karma', serif;
+
+  font-family: 'Cal Sans', sans-serif;
   font-size: 0.85rem;
+  font-weight: bold;
   letter-spacing: 0.12em;
+
   color: white;
   text-decoration: none;
+
   transition: background 0.2s ease, color 0.2s ease;
+
   border-right: 1px solid rgba(0,0,0,0.1);
-  font-family: 'Cal Sans', sans-serif;
-  font-weight:bold;
 }
 
 .nav-item:last-child .nav-link {
@@ -48,4 +52,33 @@
 .nav-link.active {
   background: #f5e09a;
   color: #1a1a1a;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    z-index: 999;
+
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .nav-link {
+    padding: 0.7rem 0.2rem;
+
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  body {
+    padding-bottom: 52px;
+  }
 }

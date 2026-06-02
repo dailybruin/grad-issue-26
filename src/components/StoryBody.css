@@ -24,6 +24,7 @@
 }
 
 /*IMAGE PAIR*/
+
 .image-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -43,6 +44,23 @@
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .image-pair {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .image-pair__item {
+    width: 100%;
+  }
+
+  .image-pair__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
 /*BODY PARAGRAPHS*/

@@ -14,10 +14,11 @@ export default function Navbar() {
     const navRef = useRef(null);
 
     useEffect(() => {
-        const header = document.querySelector("header") // or whatever your Header's element is;
-        if (header && navRef.current) {
-        const headerHeight = header.getBoundingClientRect().height;
-        navRef.current.style.top = `${headerHeight}px`;
+        const header = document.querySelector("header");
+
+        if (header && navRef.current && window.innerWidth > 768) {
+            const headerHeight = header.getBoundingClientRect().height;
+            navRef.current.style.top = `${headerHeight}px`;
         }
     }, []);
 
@@ -30,8 +31,11 @@ export default function Navbar() {
         const scrollContainer = document.querySelector(".scroll-container");
         const navbar = document.querySelector(".navbar");
         const header = document.getElementById("db-header");
-        const offset = (navbar?.offsetHeight || 0) + (header?.offsetHeight || 0);
         const currentScrollY = window.scrollY;
+        const isMobile = window.innerWidth <= 768;
+        const offset = isMobile
+        ? (header?.offsetHeight || 0)
+        : (navbar?.offsetHeight || 0) + (header?.offsetHeight || 0);
 
         if (scrollContainer) {
             const containerTop = scrollContainer.getBoundingClientRect().top + currentScrollY;
@@ -68,7 +72,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="navbar" ref = {navRef}>
             <ul className="nav-list">
                 {NAV_LINKS.map(({label, id}) => (
                     <li key={id} className="nav-item">
