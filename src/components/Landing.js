@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Landing.css";
 import StoryBody from "./StoryBody";
+import { useWindowDimensions } from "../shared/hooks";
 
 export default function Scrollytelling({ amlData }) {
-  const [heroStep, setHeroStep] = useState(0); // 0 = title, 1 = intro blurb
+  const [heroStep, setHeroStep] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { width } = useWindowDimensions();
+  const isMobile = width <= 768;
 
   const introItem = amlData.Scroll_sequence[0].value;
   const buildings = amlData.Scroll_sequence.slice(1).map(item => item.value);
@@ -46,34 +49,26 @@ export default function Scrollytelling({ amlData }) {
   return (
     <div className="scrollytelling">
 
-      {/* ── SECTION 1: HERO + INTRO (same sticky background) ── */}
+      {/* ── SECTION 1: HERO + INTRO ── */}
       <div className="hero-sticky-wrapper" id="title">
         <div className="hero-sticky">
-
-          {/* background collage — stays put the whole time */}
-          <img
-            src={amlData.background_image}
-            alt={amlData.background_image_alt}
-            className="hero-img"
+          <div
+            className="hero-bg"
+            style={{ backgroundImage: `url(${amlData.background_image})` }}
           />
           <div className="hero-overlay-dim" />
 
-          {/* title + byline — fade out when intro blurb appears */}
           <div className={`hero-text ${heroStep === 1 ? "hidden" : ""}`}>
             <h1 className="hero-title">{amlData.headline}</h1>
             <p className="hero-byline">{amlData.byline}</p>
           </div>
 
-          {/* intro blurb — fades in on step 1 */}
           <div className={`blurb-card center ${heroStep === 1 ? "active" : ""}`}>
             <p className="blurb-text">{introItem.blurb}</p>
           </div>
-
         </div>
 
-        {/* step 0: user lands, sees title */}
         <div className="hero-step" data-index="0" aria-hidden="true" />
-        {/* step 1: scroll down, intro blurb fades in, title fades out */}
         <div className="hero-step" data-index="1" aria-hidden="true" />
       </div>
 
@@ -83,7 +78,10 @@ export default function Scrollytelling({ amlData }) {
 
           {buildings.map((b, i) => (
             <div key={i} className={`building-bg ${i === activeIndex ? "active" : ""}`}>
-              <img src={b.image_desktop || b.image} alt={b.image_alt} />
+              <img
+                src={isMobile ? (b.image_mobile || b.image_desktop) : b.image_desktop}
+                alt={b.image_alt}
+              />
             </div>
           ))}
 
