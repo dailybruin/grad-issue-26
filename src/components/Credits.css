@@ -25,6 +25,12 @@
   column-gap: 90px;
   grid-template-rows: repeat(2,fit-content(100%));
   grid-template-columns: repeat(2,fit-content(100%));
+  justify-content:center;
+}
+
+.team-grid > .team-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 .team-card {

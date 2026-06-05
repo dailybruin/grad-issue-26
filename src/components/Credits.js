@@ -5,6 +5,7 @@ const GROUP_LABELS = {
   designers: "Designers",
   photographers: "Photographers",
   videographers: "Videographers",
+  illustrators: "Illustrators",
 };
 
 const WORD_TO_NUM = {
