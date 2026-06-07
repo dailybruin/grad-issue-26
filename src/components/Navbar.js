@@ -2,12 +2,12 @@ import "./Navbar.css";
 import { useEffect, useRef } from "react";
 
 const NAV_LINKS = [
-    {label: "Title", id: "title"},
+    {label: "Home", id: "title"},
     {label: "Royce", id: "royce-hall"},
     {label: "Powell", id: "powell-library"},
     {label: "Kerckhoff", id: "kerckhoff-hall"},
     {label: "Geffen", id: "david-geffen-school-of-medicine"},
-    {label: "About",id: "about"},
+    {label: "The Team",id: "about"},
 ];
 
 export default function Navbar() {

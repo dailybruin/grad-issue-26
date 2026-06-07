@@ -14,7 +14,7 @@
 
 /*SECTION TITLE*/
 .section-title {
-  font-family: 'Karma', serif;
+  font-family: 'Karma';
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: var(--color-black, #1a1a1a);

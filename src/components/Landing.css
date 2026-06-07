@@ -175,19 +175,19 @@
 }
 
 .blurb-title {
-  font-family: 'sans-serif';
+  font-family: 'Cal Sans';
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 1rem;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   line-height: 1.1;
   letter-spacing: normal;
 }
 
 .blurb-text {
-  font-family: 'sans-serif';
+  font-family: 'Karma';
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: normal;
@@ -200,7 +200,7 @@
 
 /* ── SCROLL SPACERS ── */
 .scroll-step {
-  height: 160vh;
+  height: 120vh;
   width: 100%;
   pointer-events: none;
   display: block;
