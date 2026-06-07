@@ -83,6 +83,12 @@
   text-align: left;
 }
 
+.scroll-prompt {
+  font-size: 1.2rem;
+  font-family: 'sans-serif';
+  color: rgba(255, 255, 255, 0.8);
+  animation: pulse 2s infinite;
+}
 /* hero scroll spacers */
 .hero-step {
   height: 125vh;
@@ -169,7 +175,7 @@
 }
 
 .blurb-title {
-  font-family: 'Karma', serif;
+  font-family: 'sans-serif';
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: var(--color-white);
@@ -181,7 +187,7 @@
 }
 
 .blurb-text {
-  font-family: 'Karma', serif;
+  font-family: 'sans-serif';
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: normal;
