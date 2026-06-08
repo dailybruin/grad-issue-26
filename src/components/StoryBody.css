@@ -16,7 +16,7 @@
 
 /*SECTION TITLE*/
 .section-title {
-  font-family: 'Cal Sans', sans-serif;
+  font-family: 'Cal Sans';
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 400;
   color: var(--color-black, #1a1a1a);
@@ -80,6 +80,15 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+.story-caption {
+  font-family: 'Karma';
+  font-size: 1rem;
+  color: var(--color-gray, #666);
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
 @media screen and (max-width: 768px) {
   .image-pair {
     display: flex !important;
@@ -99,7 +108,7 @@
 
 /*BODY PARAGRAPHS*/
 .story-paragraph {
-  font-family: 'Karma', serif;
+  font-family: 'Karma';
   font-size: 1rem;
   line-height: 1.75;
   color: var(--color-black, #1a1a1a);

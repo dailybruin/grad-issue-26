@@ -91,6 +91,7 @@
   font-family: 'Karma', serif;
   color: rgba(255, 255, 255, 0.8);
   animation: pulse 2s infinite;
+  text-align: right;
 }
 /* hero scroll spacers */
 .hero-step {

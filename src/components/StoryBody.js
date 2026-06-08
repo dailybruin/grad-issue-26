@@ -72,6 +72,7 @@ export default function StoryBody({ amlData }) {
         title: item.value.section_title,
         images: [item.value.image_one, item.value.image_two].filter(Boolean),
         video: item.value.video || null,
+        caption: item.value.caption || null,
         paragraphs: [],
       };
     } else if (currentChunk) {
@@ -111,6 +112,10 @@ export default function StoryBody({ amlData }) {
 
           {chunk.video && (
             <VideoEmbed src={chunk.video} title={`${chunk.title} video`} />
+          )}
+
+          {chunk.caption && (
+            <p className="story-caption">{chunk.caption}</p>
           )}
         </article>
       ))}
