@@ -293,6 +293,10 @@
     text-align: left;
   }
 
+  .scroll-prompt {
+    text-align:center;
+  }
+
   .story-body {
     padding: 3rem 1.5rem;
   }
