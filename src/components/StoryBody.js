@@ -1,12 +1,9 @@
 import { useState } from "react";
 import "./StoryBody.css";
 
-// Extract YouTube video ID from various URL formats
 function getYouTubeId(url) {
   if (!url) return null;
-  // If it's already just an ID (11 chars, no slashes), return as-is
   if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
-  // Otherwise try to parse from full URL
   const match = url.match(
     /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
   );
@@ -17,7 +14,6 @@ function VideoEmbed({ src, title }) {
   const [playing, setPlaying] = useState(false);
   const ytId = getYouTubeId(src);
 
-  // YouTube video
   if (ytId) {
     const thumbnail = `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`;
     return (
@@ -44,7 +40,6 @@ function VideoEmbed({ src, title }) {
     );
   }
 
-  // Fallback: Drive embed or any other iframe src (keeps old videos working)
   return (
     <div className="video-embed">
       <iframe
@@ -61,7 +56,6 @@ export default function StoryBody({ amlData }) {
   if (!amlData?.article_sections) return null;
 
   const sections = amlData.article_sections;
-
   const chunks = [];
   let currentChunk = null;
 
@@ -82,15 +76,19 @@ export default function StoryBody({ amlData }) {
 
   if (currentChunk) chunks.push(currentChunk);
 
+  const validChunks = chunks.filter(
+    (chunk) => chunk.images.length > 0 || chunk.video || chunk.paragraphs.length > 0
+  );
+
   return (
     <section className="story-body">
-      {chunks.map((chunk, idx) => (
+      {validChunks.map((chunk, idx) => (
         <article
           key={idx}
           className="story-section"
-          id={chunk.title.toLowerCase().replace(/\s+/g, "-")}
+          id={chunk.title?.toLowerCase().replace(/\s+/g, "-") ?? `section-${idx}`}
         >
-          <h2 className="section-title">{chunk.title}</h2>
+          {chunk.title && <h2 className="section-title">{chunk.title}</h2>}
 
           {chunk.images.length > 0 && (
             <div className="image-pair">
