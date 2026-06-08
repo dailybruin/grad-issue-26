@@ -68,10 +68,17 @@
   }
 
   .team-grid {
+    display: grid;
     grid-template-columns: 1fr; 
     gap: 12px;                  
     width: 100%;
-    max-width: 320px;          
+    max-width: 320px;
+    margin: 0 auto;          
+  }
+
+  .team-grid > .team-card:last-child:nth-child(odd) {
+    grid-column: auto;        
+    justify-self: stretch;             
   }
 
   .team-card {
