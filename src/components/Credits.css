@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/cal-sans@1.0.1/fonts/CalSans-SemiBold.css');
+
 .team-credits {
   display: inline-flex;
   flex-direction: column;
@@ -11,9 +13,10 @@
 }
 
 .team-group__title {
+  font-family: 'Cal Sans', sans-serif;
   text-align: center;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0 0 1rem;
   margin-bottom: 2rem;
   color: #111;
@@ -44,16 +47,18 @@
 }
 
 .team-card__name {
+  font-family: 'Cal Sans', sans-serif;
   font-size: 20px;
-  font-weight: 800;
-  color: #111;
+  font-weight: 400;
+  color: black;
   margin: 0 0 3px;
 }
 
 .team-card__position {
+  font-family:'Cal Sans', sans-serif;
   font-size: 18px;
-  font-weight: 500;
-  color: #666;
+  font-weight: 400;
+  color: black;
   margin: 0;
 }
 
@@ -65,6 +70,7 @@
 
   .team-group__title {
     font-size: 1.3rem;
+    text-align:center;
   }
 
   .team-grid {
@@ -87,6 +93,7 @@
     height: auto;             
     padding: 12px 16px;
     border-radius: 10px;
+    align-items: center;
   }
 
   .team-card__name {

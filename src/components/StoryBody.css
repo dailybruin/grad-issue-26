@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
 /*STORY BODY*/
 .story-body {
   background: white;
@@ -14,13 +16,13 @@
 
 /*SECTION TITLE*/
 .section-title {
-  font-family: 'Karma';
+  font-family: 'Cal Sans', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-black, #1a1a1a);
   margin: 0 0 1.5rem;
   line-height: 1.1;
-  letter-spacing: normal;
+  letter-spacing: 0;
 }
 
 /*IMAGE PAIR*/

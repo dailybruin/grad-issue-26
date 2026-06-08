@@ -58,15 +58,18 @@
   pointer-events: none;
 }
 
-.hero-title,
-.hero-byline {
+.hero-title {
   margin: 0;
   font-family: 'Cal Sans', sans-serif;
+}
+.hero-byline {
+  margin: 0;
+  font-family: 'Karma', sans-serif;
 }
 
 .hero-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 750;
+  font-weight: 400;
   color: var(--color-white);
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -85,7 +88,7 @@
 
 .scroll-prompt {
   font-size: 1.2rem;
-  font-family: 'sans-serif';
+  font-family: 'Karma', serif;
   color: rgba(255, 255, 255, 0.8);
   animation: pulse 2s infinite;
 }
@@ -175,9 +178,9 @@
 }
 
 .blurb-title {
-  font-family: 'Cal Sans';
+  font-family: 'Cal Sans', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-white);
   margin: 0 0 1rem;
   max-width: 100%;
@@ -187,7 +190,7 @@
 }
 
 .blurb-text {
-  font-family: 'Karma';
+  font-family: 'Karma', serif;
   font-size: 1rem;
   line-height: 1.75;
   letter-spacing: normal;
