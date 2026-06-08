@@ -3,11 +3,13 @@ import "./Landing.css";
 import StoryBody from "./StoryBody";
 
 function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(null); 
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
+  });
 
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${breakpoint}px)`);
-    setIsMobile(mq.matches);
     const handler = (e) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -92,11 +94,7 @@ export default function Scrollytelling({ amlData }) {
               className={`building-bg ${i === activeIndex ? "active" : ""}`}
             >
               <img
-                src={
-                  (isMobile === true)
-                    ? (b.image_mobile || b.image_desktop)
-                    : (b.image_desktop)
-                }
+                src={isMobile ? (b.image_mobile || b.image_desktop) : b.image_desktop}
                 alt={b.image_alt}
               />
             </div>

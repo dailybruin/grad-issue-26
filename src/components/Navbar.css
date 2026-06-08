@@ -69,6 +69,7 @@
     z-index: 999;
 
     border-top: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .nav-link {
@@ -79,6 +80,6 @@
   }
 
   body {
-    padding-bottom: 52px;
+    padding-bottom: calc(52px + env(safe-area-inset-bottom));
   }
 }
