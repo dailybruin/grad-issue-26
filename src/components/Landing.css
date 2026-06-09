@@ -262,6 +262,9 @@
     font-family: 'Cal Sans', sans-serif;
     margin-bottom: 1rem; 
   }
+  .scroll-prompt {
+    bottom: 3rem;
+  }
 
   .building-bg img {
     object-position: center center; 
