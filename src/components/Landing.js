@@ -73,7 +73,10 @@ export default function Scrollytelling({ amlData }) {
           <div className={`hero-text ${heroStep === 1 ? "hidden" : ""}`}>
             <h1 className="hero-title">{amlData.headline}</h1>
             <p className="hero-byline">{amlData.byline}</p>
-            <p className="scroll-prompt">Scroll to continue</p>
+          </div>
+
+          <div className={`scroll-prompt ${heroStep === 1 ? "hidden" : ""}`}>
+            <p>Scroll to continue</p>
           </div>
 
           <div className={`blurb-card center ${heroStep === 1 ? "active" : ""}`}>

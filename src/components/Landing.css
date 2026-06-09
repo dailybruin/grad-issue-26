@@ -87,11 +87,25 @@
 }
 
 .scroll-prompt {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.scroll-prompt.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-prompt p {
   font-size: 1.2rem;
   font-family: 'Karma', serif;
   color: rgba(255, 255, 255, 0.8);
   animation: pulse 2s infinite;
-  text-align: center;
+  margin: 0;
 }
 /* hero scroll spacers */
 .hero-step {
